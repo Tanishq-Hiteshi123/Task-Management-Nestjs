@@ -13,6 +13,7 @@ export class DatabaseService
   async onModuleInit() {
     try {
       await this.$connect();
+      
     } catch (error) {
       throw new InternalServerErrorException(error);
     }

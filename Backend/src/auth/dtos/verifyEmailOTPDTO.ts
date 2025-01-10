@@ -5,7 +5,7 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
-import { UserRole } from 'src/common/entity/user.entity';
+import { Role } from 'src/common/entity/user.entity';
 
 export class VerifyEmailOTPDTO {
   @IsEmail()
@@ -18,9 +18,9 @@ export class VerifyEmailOTPDTO {
 
   @IsOptional()
   @IsString()
-  fullName: string;
+  fullName?: string;
 
   @IsOptional()
-  @IsEnum(UserRole)
-  role: string;
+  @IsEnum(Role)
+  role?: string;
 }

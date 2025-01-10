@@ -12,13 +12,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 model User {
   id           Int       @id @default(autoincrement())
   email        String    @unique
   fullName     String?
   avatar       String?
-  role         Role?
+  role         Role      @default(EMPLOYEE)
   tasks        Task[]    @relation("UserTasks") // Tasks assigned to this user
   createdTasks Task[]    @relation("ManagerTasks") // Tasks created by this user if Manager
   createdAt    DateTime  @default(now())
